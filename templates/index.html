@@ -1,0 +1,106 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Fall Detection System</h1>
+
+        <label for="videoUpload">Upload Video:</label>
+        <input type="file" id="videoUpload" accept="video/*">
+
+        <button id="detectButton">Detect Fall</button>
+
+        <div id="result">
+            <h2>Detection Result:</h2>
+            <p id="videoOutputText">No detection yet.</p>
+        </div>
+
+        <div id="videoContainer" style="display: none;">
+            <h2>Processed Video:</h2>
+            <video id="processedVideo" controls style="max-width: 100%; border: 1px solid black;">
+                <source id="videoSource" src="" type="video/mp4">
+                <source id="videoSourceAvi" src="" type="video/x-msvideo">
+                Your browser does not support the video tag.
+            </video>
+            
+        </div>
+        <label for="csvUpload">Upload CSV:</label>
+        <input type="file" id="csvUpload" accept=".csv">
+
+        <button id="detectSensorButton">Detect Fall</button>
+
+        <div id="csvresult">
+            <h2>Detection Result:</h2>
+            <p id="csvoutputText">No detection yet.</p>
+            <img id="fallPlot" src="" alt="Fall Detection Plot" style="display: none; max-width: 100%; height: auto; border: 1px solid black;">
+        </div>
+
+
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Fall Detection System</h1>
+
+        <label for="videoUpload">Upload Video:</label>
+        <input type="file" id="videoUpload" accept="video/*">
+
+        <button id="detectButton">Detect Fall</button>
+
+        <div id="result">
+            <h2>Detection Result:</h2>
+            <p id="videoOutputText">No detection yet.</p>
+        </div>
+
+        <!-- Processed Video Section -->
+        <div id="videoContainer" style="display: none;">
+            <h2>Processed Video:</h2>
+            <video id="processedVideo" controls style="max-width: 100%; border: 1px solid black;">
+                <source id="videoSource" src="" type="video/mp4">
+                <source id="videoSourceAvi" src="" type="video/x-msvideo">
+                Your browser does not support the video tag.
+            </video>
+            
+        </div>
+        <label for="csvUpload">Upload CSV:</label>
+        <input type="file" id="csvUpload" accept=".csv">
+
+        <button id="detectSensorButton">Detect Fall</button>
+
+        <div id="csvresult">
+            <h2>Detection Result:</h2>
+            <p id="csvoutputText">No detection yet.</p>
+            <img id="fallPlot" src="" alt="Fall Detection Plot" style="display: none; max-width: 100%; height: auto; border: 1px solid black;">
+        </div>
+
+        <!-- Combined Approach Button -->
+        <div class="combined-section">
+            <h2>Combined Approach</h2>
+            <p>Use both video and sensor data for more accurate fall detection</p>
+            <a href="/combined"><button id="combinedButton">Go to Combined Detection</button></a>
+        </div>
+
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </div>
+</body>
+
+</html>

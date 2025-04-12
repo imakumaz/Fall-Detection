@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Fall Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Combined Fall Detection System</h1>
+        <p>Upload a folder containing both video and CSV sensor data for comprehensive fall detection</p>
+
+        <div class="upload-section">
+            <div class="file-upload">
+                <label for="videoFileCombined">Upload Video:</label>
+                <input type="file" id="videoFileCombined" accept="video/*">
+                <p id="videoStatus">No video selected</p>
+            </div>
+            
+            <div class="file-upload">
+                <label for="csvFileCombined">Upload CSV:</label>
+                <input type="file" id="csvFileCombined" accept=".csv">
+                <p id="csvStatus">No CSV selected</p>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button id="combinedDetectButton">Detect Fall (Combined Approach)</button>
+            <button id="quickDetectButton" class="quick-detect">Quick Detect (Early Stopping)</button>
+        </div>
+
+        <div id="combinedResult">
+            <h2>Detection Result:</h2>
+            <p id="combinedOutputText">No detection yet.</p>
+            <div class="confidence-scores" style="display: none;">
+                <p>Video confidence: <span id="videoConfidence">0%</span></p>
+                <p>Sensor confidence: <span id="sensorConfidence">0%</span></p>
+                <p>Combined confidence: <span id="combinedConfidence">0%</span></p>
+            </div>
+        </div>
+
+        <!-- Processed Video Section -->
+        <div id="combinedVideoContainer" style="display: none;">
+            <h2>Processed Video:</h2>
+            <video id="combinedProcessedVideo" controls style="max-width: 75%; border: 1px solid black;">
+                <source id="combinedVideoSource" src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Sensor Data Plot -->
+        <div id="combinedPlotContainer" style="display: none;">
+            <h2>Sensor Data Analysis:</h2>
+            <img id="combinedFallPlot" src="" alt="Sensor Data Plot" style="max-width: 75%; height: auto; border: 1px solid black;">
+        </div>
+
+        <div class="navigation">
+            <a href="/"><button id="backButton">Back to Individual Detection</button></a>
+        </div>
+
+        <script src="{{ url_for('static', filename='combined.js') }}"></script>
+    </div>
+</body>
+
+</html>
