@@ -1,0 +1,9 @@
+numpy
+pandas
+matplotlib
+opencv-python
+cvzone
+tensorflow
+scikit-learn
+flask
+ultralytics
