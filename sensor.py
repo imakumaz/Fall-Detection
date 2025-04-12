@@ -48,15 +48,14 @@ def preprocess_mpu6050_data(csv_file, window_size=200, overlap=0.5):
     return X
 
 def load_scaler(data_path):
-    """Load the saved scaler or create a new one"""
+    """Load the saved scaler"""
     scaler_path = os.path.join(data_path, 'scaler.pkl')
-    if os.path.exists(scaler_path):
-        with open(scaler_path, 'rb') as f:
-            return pickle.load(f)
+    if not os.path.exists(scaler_path):
+        raise FileNotFoundError(f"Scaler not found at {scaler_path}. Please ensure it's available.")
     
-    X_train = load_pickle(os.path.join(data_path, 'X_train.pkl'))
-    scaler = StandardScaler().fit(X_train.reshape(-1, X_train.shape[-1]))
-    return scaler
+    with open(scaler_path, 'rb') as f:
+        return pickle.load(f)
+
 
 def normalize_windows(X, scaler):
     """Normalize the data windows"""
